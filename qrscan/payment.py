@@ -175,13 +175,10 @@ def payment_status(request):
 
 from django.template.loader import get_template
 from django.template import Context
-from xhtml2pdf import pisa
 from io import BytesIO
 
 def write_pdf(template_src, context_dict, filename, cold_coffee):
-    template = get_template(template_src)
-    context = (context_dict)
-    html  = template.render(context)
-    result = open(filename, 'wb') # Changed from file to filename
-    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
-    result.close()
+    # PDF generation is disabled in this deployment because xhtml2pdf and its
+    # dependencies do not install reliably in Render's readonly build environment.
+    # If you need PDF ticket generation, enable a supported PDF library here.
+    raise RuntimeError('PDF generation is disabled in this deployment.')
