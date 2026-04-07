@@ -1,8 +1,6 @@
-import imp
 from django.contrib import admin
 from django.urls import path
 from qrscan import views
-from django.urls import path
 from django.views.generic import TemplateView
 from rest_framework import routers
 from django.contrib.auth.views import LogoutView  
