@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .ticket {
+            background: white;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px dashed #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .title {
+            color: #007bff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #333;
+        }
+        .info-value {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .qr-section {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #007bff;
+        }
+        .instructions {
+            background-color: #e3f2fd;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+        .amount {
+            font-size: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <div class="header">
+            <div class="title">MUSEUM ENTRY TICKET</div>
+            <div class="subtitle">Government of India - Ministry of Culture</div>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="info-label">Booking ID:</span><br>
+                <span class="info-value">{{ id }}</span>
+            </div>
+            <div>
+                <span class="info-label">Visitor Name:</span><br>
+                <span class="info-value">{{ name }}</span>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="info-label">Monument/Museum:</span><br>
+                <span class="info-value">{{ monument }}</span>
+            </div>
+            <div>
+                <span class="info-label">Visit Date:</span><br>
+                <span class="info-value">{{ date }}</span>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="info-label">Adults:</span><br>
+                <span class="info-value">{{ count_adult }}</span>
+            </div>
+            <div>
+                <span class="info-label">Children:</span><br>
+                <span class="info-value">{{ count_children }}</span>
+            </div>
+            <div>
+                <span class="info-label">Foreign:</span><br>
+                <span class="info-value">{{ count_abroad }}</span>
+            </div>
+            <div>
+                <span class="info-label">Total Visitors:</span><br>
+                <span class="info-value">{{ total_count }}</span>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="info-label">ID Type:</span><br>
+                <span class="info-value">{{ doc_type }}</span>
+            </div>
+            <div>
+                <span class="info-label">ID Number:</span><br>
+                <span class="info-value">{{ personal_id_no }}</span>
+            </div>
+            <div>
+                <span class="info-label">Amount Paid:</span><br>
+                <span class="amount">₹{{ total_cost }}</span>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <div style="margin-bottom: 10px;">
+                <strong>Entry QR Code</strong>
+            </div>
+            {% if img %}
+            <div style="margin: 20px 0;">
+                <img src="{{ img }}" alt="QR Code" style="width: 150px; height: 150px;">
+            </div>
+            {% endif %}
+            <div style="font-size: 12px; color: #666;">
+                Present this QR code at the entry gate
+            </div>
+        </div>
+
+        <div class="instructions">
+            <strong>Important Instructions:</strong>
+            <ul style="margin: 10px 0; padding-left: 20px;">
+                <li>Please carry original ID proof during your visit</li>
+                <li>Tickets are valid only for the selected date</li>
+                <li>Entry subject to monument opening hours and rules</li>
+                <li>This ticket is non-transferable and non-refundable</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>This is a computer-generated ticket. No signature required.</p>
+            <p>For support, contact: support@museumtickets.gov.in | +91-11-12345678</p>
+        </div>
+    </div>
+</body>
+</html>

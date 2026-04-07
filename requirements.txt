@@ -1,0 +1,12 @@
+Django==3.2.3
+djangorestframework
+django-crispy-forms
+django-cors-headers
+qrcode[pil]
+pandas
+razorpay
+Pillow
+gunicorn
+whitenoise
+psycopg2-binary
+dj-database-url
