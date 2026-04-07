@@ -4,6 +4,7 @@ django-crispy-forms
 django-cors-headers
 django-filter
 matplotlib
+xhtml2pdf
 qrcode[pil]
 pandas
 razorpay
